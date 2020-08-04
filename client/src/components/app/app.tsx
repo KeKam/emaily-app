@@ -1,9 +1,12 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import { Header } from '../header/header';
 
 export const App = () => {
   return (
-    <div>
-      <a href='/auth/google'>Sign in with Google</a>
+    <div className='container'>
+      <Header />
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import { AuthActionTypes, Action } from '../types/auth.action.types';
 
+export interface User {
+  googleId: string;
+  _id: string;
+}
+
 export interface State {
-  currentUser: null | {};
+  currentUser: null | false | User;
 }
 
 export const initialState: State = {
@@ -9,12 +14,11 @@ export const initialState: State = {
 };
 
 export const authReducer = (state = initialState, action: Action): State => {
-  console.log(action);
   switch (action.type) {
     case AuthActionTypes.FETCH_USER:
       return {
         ...state,
-        currentUser: action.user,
+        currentUser: action.user || false,
       };
     case AuthActionTypes.LOGGED_IN:
       return {

@@ -1,23 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { useAuthState } from '../../contexts/auth.context';
 
 export const Header = () => {
-  const state = useAuthState();
+  const { currentUser } = useAuthState();
 
   return (
     <nav>
       <div className='nav-wrapper'>
-        <a href='#' className='brand-logo'>
-          Emaily
-        </a>
+        <Link to={currentUser ? '/surveys' : '/'} className='brand-logo'>
+          Placeholder
+        </Link>
         <ul className='right'>
-          {state.currentUser === false ? (
+          {currentUser === false ? (
             <li>
               <a href='/auth/google'>Sign in with Google</a>
             </li>
-          ) : !state.currentUser ? null : (
+          ) : !currentUser ? null : (
             <li>
-              <a>Logout</a>
+              <a href='/api/logout'>Logout</a>
             </li>
           )}
         </ul>

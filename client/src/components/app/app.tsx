@@ -5,6 +5,8 @@ import { startFetchUser } from '../../actions/auth.actions';
 import { useAuthDispatch } from '../../contexts/auth.context';
 
 import { Header } from '../header/header';
+import { Landing } from '../landing/landing';
+import { Dashboard } from '../dashboard/dashboard';
 
 export const App = () => {
   const dispatch = useAuthDispatch();
@@ -15,7 +17,13 @@ export const App = () => {
 
   return (
     <div className='container'>
-      <Header />
+      <BrowserRouter>
+        <>
+          <Header />
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/surveys' component={Dashboard} />
+        </>
+      </BrowserRouter>
     </div>
   );
 };

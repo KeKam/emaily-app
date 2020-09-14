@@ -7,12 +7,12 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
-if (!process.env.GOOGLE_CLIENT_ID) {
-  throw new Error('GOOGLE_CLIENT_ID must be defined');
+if (!process.env.REACT_APP_GOOGLE_CLIENT_ID) {
+  throw new Error('REACT_APP_GOOGLE_CLIENT_ID must be defined');
 }
 
-if (!process.env.GOOGLE_CLIENT_SECRET) {
-  throw new Error('GOOGLE_CLIENT_SECRET must be defined');
+if (!process.env.REACT_APP_GOOGLE_CLIENT_SECRET) {
+  throw new Error('REACT_APP_GOOGLE_CLIENT_SECRET must be defined');
 }
 
 const User = mongoose.model('users');
@@ -29,8 +29,8 @@ passport.deserializeUser(async (id: string, done) => {
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+      clientSecret: process.env.REACT_APP_GOOGLE_CLIENT_SECRET,
       callbackURL: '/auth/google/callback',
       proxy: true,
     },

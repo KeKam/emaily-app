@@ -23,6 +23,7 @@ export const Header = () => {
               <li>
                 <StripeCheckoutButton />
               </li>
+              <li>Credits: {currentUser.credits}</li>
               <li>
                 <a href='/api/logout'>Logout</a>
               </li>

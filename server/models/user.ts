@@ -1,11 +1,13 @@
 import mongoose, { Schema } from 'mongoose';
 
-interface User {
+export interface UserModel {
   googleId: string;
+  credits: number;
 }
 
-const userSchema = new Schema<User>({
+const userSchema = new Schema<UserModel>({
   googleId: String,
+  credits: { type: Number, default: 0 },
 });
 
 mongoose.model('users', userSchema);

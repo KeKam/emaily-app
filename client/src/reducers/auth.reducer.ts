@@ -3,6 +3,7 @@ import { AuthActionTypes, Action } from '../types/auth.action.types';
 export interface User {
   googleId: string;
   _id: string;
+  credits: number;
 }
 
 export interface State {

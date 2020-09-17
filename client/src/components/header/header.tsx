@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useAuthState } from '../../contexts/auth.context';
 import { StripeCheckoutButton } from '../stripe-button/stripe-checkout-button';
+import { SideBar } from '../side-bar/side-bar';
 
 export const Header = () => {
   const { currentUser } = useAuthState();
@@ -13,7 +14,10 @@ export const Header = () => {
         <Link to={currentUser ? '/surveys' : '/'} className='brand-logo'>
           Placeholder
         </Link>
-        <ul className='right '>
+        <a href='#' data-target='mobile-demo' className='sidenav-trigger right'>
+          <i className='material-icons'>menu</i>
+        </a>
+        <ul className='right hide-on-med-and-down'>
           {currentUser === false ? (
             <li>
               <a href='/auth/google'>Sign in with Google</a>
@@ -30,6 +34,7 @@ export const Header = () => {
             </>
           )}
         </ul>
+        <SideBar />
       </div>
     </nav>
   );

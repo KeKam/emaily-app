@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 import { authRouter } from './routes/auth-routes';
 import { stripeRouter } from './routes/stripe-routes';
 import './models/user';
+import './models/survey';
 import './services/passport';
 
 const start = async () => {
